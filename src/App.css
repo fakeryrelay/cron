@@ -1,38 +1,244 @@
 .App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+
+  color: #fff;
+
+  background-color: #1E1E1E;
+}
+
+.schedule {
+  margin: 50px auto;
+  min-width: 500px;
+  max-width: 1000px;
+  background-color: #18181b;
+  border: 5px solid #52525b;
+  border-radius: 25px;
+}
+
+.content {
+  padding: 20px;
+  min-height: 200px;
+}
+
+.schedule__title {
+  padding: 20px 0;
+
+  border-bottom: 2px solid #52525b;
+
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* schedule__header */
+.schedule__header {
   display: flex;
-  flex-direction: column;
+  border-bottom: 2px solid #52525b;
+}
+
+.schedule__header li {
+  list-style: none;
+  width: 25%;
+  height: 48px;
+
+  border-right: 2px solid #52525b;
+}
+
+.schedule__header li:nth-last-child(1) {
+  border-right: none;
+}
+
+.schedule__header button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+.schedule__header button.active {
+  background-color: #29292c;
+}
+
+.schedule__header button:hover {
+  background-color: #29292c;
+}
+
+
+/* label */
+.label {
+  width: 100%;
+}
+
+.label__title {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.label__title h2 {
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.label__title div {
+  margin-top: 1px;
+  width: 100%;
+  height: 1px;
+  background-color: #52525b;
+}
+
+/* option */
+.option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.option__input {
+  min-width: 100px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 7px;
+  border: 2px solid #52525b;
+  background-color: #000;
+  color-scheme: dark;
+}
+
+.option__input:disabled {
+  opacity: .5;
+}
+
+/* radio */
+.radio {
+  margin-right: 15px;
+  width: 150px;
+  font-size: 15px;
+
+  position: relative;
+}
+
+.radio label {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+}
+
+.radio input {
+  visibility: hidden;
+  margin-right: 15px;
+}
+
+.radio div {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+
+  background: #dcdcdc;
+  border-radius: 50%;
+  border: 5px solid #dcdcdc;
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.radio div.checked {
+  background: #000;
+}
+
+/* schedule__buttons */
+.schedule__buttons {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 30px;
+  height: 60px;
+  border-top: 2px solid #52525b;
+  border-bottom: 2px solid #52525b;
 }
 
-.App-link {
-  color: #61dafb;
+.schedule__buttons button {
+  height: 34px;
+  width: 120px;
+  background-color: transparent;
+  border: 2px solid #52525b;
+  border-radius: 7px;
+
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: border-color .2s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.schedule__buttons button:hover {
+  border-color: #fff;
+}
+
+/* schedule__footer */
+.schedule__footer {
+  margin-bottom: 6px;
+}
+
+.schedule__footer p {
+  padding: 0 10px;
+  margin: 0 auto;
+  max-width: 350px;
+  font-size: 14px;
+  color: rgb(255, 83, 83);
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.schedule__footer input {
+  margin: 5px 10px 5px;
+  width: calc(100% - 20px);
+  padding: 8px 10px;
+
+  border: 3px solid #52525b;
+  border-radius: 15px;
+  background-color: #18181b;
+
+  font-size: 20px;
+  letter-spacing: .2rem;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.schedule__footer input:focus {
+  border-color: #fff;
+}
+
+.label__custom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.label__custom-item {
+  margin-bottom: 20px;
+  width: calc(50% - 15px);
 }
