@@ -18,6 +18,7 @@ export const onLoadCron = (cron, setCron, setActiveEditor, setOptionType) => {
     setOptionType(type);
   };
   // Ежедневно
+  console.log(hours)
   if (
     [daysOfMonth, months, daysOfWeek].every((el) => el === "*") &&
     minutes !== "*" &&
@@ -37,7 +38,8 @@ export const onLoadCron = (cron, setCron, setActiveEditor, setOptionType) => {
       return;
     }
   }
-
+  
+  console.log(daysOfWeek)
   // Еженедельно
   if (
     [daysOfMonth, months].every((el) => el === "*") &&
@@ -56,6 +58,7 @@ export const onLoadCron = (cron, setCron, setActiveEditor, setOptionType) => {
     }
   }
 
+  console.log(daysOfMonth)
   // Ежемесячно
   if (
     [daysOfWeek, months].every((el) => el === "*") &&
@@ -63,7 +66,7 @@ export const onLoadCron = (cron, setCron, setActiveEditor, setOptionType) => {
     hours !== "*" &&
     numbersReg.test(daysOfMonth)
   ) {
-    if (numbersReg.test(hours) && minutes === "0") {
+    if (minutes === "0" && numbersReg.test(hours)) {
       handleValid("monthly", "few-times");
       return;
     }
@@ -73,7 +76,6 @@ export const onLoadCron = (cron, setCron, setActiveEditor, setOptionType) => {
       return;
     }
   }
-
   setCron({
     ...cron,
   });
